@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    android:backgroundTint="@color/black"
+    android:layout_height="wrap_content">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:backgroundTint="@color/white"
+        android:layout_height="160dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+
+        <TextView
+            android:id="@+id/vname"
+            android:layout_width="180dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="180dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:id="@+id/vaddress"
+            android:layout_width="180dp"
+            android:layout_marginLeft="180dp"
+            android:layout_height="25dp"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="50dp"/>
+
+        <TextView
+            android:id="@+id/vphone"
+            android:layout_width="180dp"
+            android:layout_height="25dp"
+            android:textSize="15dp"
+            android:layout_marginLeft="180dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="85dp"/>
+
+        <TextView
+            android:id="@+id/vreason"
+            android:layout_width="180dp"
+            android:layout_height="25dp"
+            android:textSize="15dp"
+            android:layout_marginLeft="180dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="120dp"/>
+
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="110dp"
+            android:layout_height="25dp"
+            android:text="Visitor Name :"
+            android:layout_marginLeft="18dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:id="@+id/textview2"
+            android:layout_width="100dp"
+            android:layout_marginLeft="18dp"
+            android:layout_height="25dp"
+            android:text="Address :"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="50dp"/>
+
+        <TextView
+            android:id="@+id/textview3"
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:text="Phone :"
+            android:textSize="15dp"
+            android:layout_marginLeft="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="85dp"/>
+
+        <TextView
+            android:id="@+id/textview4"
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:text="Reason :"
+            android:textSize="15dp"
+            android:layout_marginLeft="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="120dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
