@@ -46,14 +46,19 @@ public class loginpage extends AppCompatActivity {
         auth.signInWithEmailAndPassword(txt_email,txt_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-            //    if (txt_email == "admin@gmail.com" || txt_password == "12345678") {
+                //    if (txt_email == "admin@gmail.com" || txt_password == "12345678") {
+                String email = auth.getTenantId();
+
                     if (task.isSuccessful()) {
-                        Toast.makeText(loginpage.this, "Logging Successfull", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(loginpage.this, Start.class));
-                    } else {
+                      //  if (email == "admin@gmail.com") {
+                            Toast.makeText(loginpage.this, "Logging Successfull", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(loginpage.this,admin.class));
+                  //      }
+                    }else {
                         Toast.makeText(loginpage.this, "Invalid Email or Password", Toast.LENGTH_SHORT).show();
                     }
-                }
+
+            }
 
         });
     }

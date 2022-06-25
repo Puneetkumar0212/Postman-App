@@ -39,7 +39,7 @@ android:background="@drawable/loginpage"    tools:context=".MainActivity">
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:foregroundGravity="center"
-            android:text="User Login"
+            android:text="User"
             android:textSize="8sp" />
 
         <Button

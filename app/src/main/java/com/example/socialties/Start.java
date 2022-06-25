@@ -30,9 +30,12 @@ public class Start extends AppCompatActivity {
     private TextView VisitorNumber ;
     private TextView Address ;
     private TextView Reason ;
+    private TextView Datei;
+    private  TextView Time;
 
     FirebaseDatabase rootnode;
     DatabaseReference reference ;
+    public int j =0 ;
 //    ArrayList<String> datacol = new ArrayList<String>();
 //    String get_name = name.getText().toString();
 //    String get_phone = vnumber.getText().toString();
@@ -53,7 +56,8 @@ public class Start extends AppCompatActivity {
         VisitorNumber =findViewById(R.id.editTextTextPersonName3);
         Address =findViewById(R.id.editTextTextPersonName4);
         Reason=findViewById(R.id.editTextTextPersonName5);
-
+        Datei =findViewById(R.id.enterdate);
+        Time= findViewById(R.id.entertime);
 // we made a array list to store all the data like name, address, phone number and  reason and fin ally the arraylist is used.
 //        ArrayList<String> datacol = new ArrayList<String>();
 //        String get_name = name.getText().toString();
@@ -69,21 +73,23 @@ public class Start extends AppCompatActivity {
 
 
      //   DAOVisitor daoVisitor = new DAOVisitor();
+
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                j ++ ;
                 String get_name = Name.getText().toString();
                 String get_phone = VisitorNumber.getText().toString();
                 String get_address = Address.getText().toString();
                 String get_reason = Reason.getText().toString();
-
+                String get_datee = Datei.getText().toString();
+                String get_time =Time.getText().toString();
 
                 rootnode = FirebaseDatabase.getInstance();
                 reference = rootnode.getReference().child("visitor");
 
-                Visitor visitor = new Visitor(get_name, get_phone, get_address, get_reason);
-                reference.child(get_phone).setValue(visitor);
+                Visitor visitor = new Visitor(get_name,get_phone, get_address, get_reason, get_datee,get_time);
+                reference.child("Visitor"+j).setValue(visitor);
 
                 Toast.makeText(Start.this, "Details Send Successfully", Toast.LENGTH_SHORT).show();
 
@@ -108,8 +114,6 @@ public class Start extends AppCompatActivity {
                 startActivity(new Intent(Start.this, MainActivity.class));
             }
         });
-
-
     }
 
 

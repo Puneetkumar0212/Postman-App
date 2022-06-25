@@ -6,13 +6,20 @@ public class Visitor {
     private String vnumber;
     private String address ;
     private String reason;
+    private String date;
+    private String time;
 
-     public Visitor(){}
-    public Visitor(String name, String vnumber, String address, String reason) {
+    public Visitor(){
+
+    }
+    public Visitor(String name, String vnumber, String address, String reason, String date, String time) {
         this.name = name;
         this.vnumber = vnumber;
         this.address = address;
         this.reason = reason;
+        this.date = date;
+        this.time= time ;
+
     }
 
     public String getName() {
@@ -45,5 +52,21 @@ public class Visitor {
 
     public void setReason(String reason) {
         this.reason = reason;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

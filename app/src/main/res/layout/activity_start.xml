@@ -13,8 +13,9 @@
         android:layout_width="80dp"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
-        android:text="Logout"
-        android:textSize="8dp"
+        android:text="Exit"
+        android:padding="4dp"
+        android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.951"
         app:layout_constraintStart_toStartOf="parent"
@@ -119,6 +120,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
+        <EditText
+            android:id="@+id/enterdate"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="305dp"
+            android:layout_marginRight="30dp"
+            android:background="#378C566D"
+            android:textColor="@color/black"
+            android:ems="10"
+            android:hint="Date"
+            android:inputType="date"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+        <EditText
+            android:id="@+id/entertime"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="375dp"
+            android:layout_marginRight="30dp"
+            android:background="#378C566D"
+            android:textColor="@color/black"
+            android:ems="10"
+            android:hint="Time"
+            android:inputType="time"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
 
         <Button
@@ -126,7 +160,7 @@
             android:layout_width="70dp"
             android:layout_height="48dp"
             android:layout_gravity="center"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="190dp"
             android:text="Send"
             android:backgroundTint="#0D5B68"
             android:textSize="10dp"
@@ -149,9 +183,9 @@
         android:layout_height="145dp"
         android:layout_marginStart="16dp"
         android:padding="15dp"
-        android:text="Hello Sir, Enter the details below"
+        android:text="Hello User, Enter the details below"
         android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

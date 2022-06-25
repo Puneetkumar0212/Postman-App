@@ -3,10 +3,14 @@ package com.example.socialties;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,25 +28,30 @@ public class admin extends AppCompatActivity {
 //        private TextView vreason;
 
 
-      private ListView list;
+  //    private ListView list;
       private TextView text1 ;
       private TextView text2 ;
       private TextView text3 ;
     private TextView text4 ;
+    private TextView text5 ;
+    private TextView text6 ;
+ //   private Button logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
- //       list = findViewById(R.id.list);
-//
-//        ArrayList<String> a = new ArrayList<>();
-//        ArrayAdapter adapter = new ArrayAdapter<String>(admin.this,R.layout.activity_visitor_rv,a);
-//        list.setAdapter(adapter);
+   //     list = findViewById(R.id.list);
+
+     //   logout.findViewById(R.id.button7);
         text1 = findViewById(R.id.vname);
         text2 =findViewById(R.id.vphone);
         text3 =findViewById(R.id.vaddress);
         text4 =findViewById(R.id.vreason);
+        text5 =findViewById(R.id.vdate);
+        text6 =findViewById(R.id.vtime);
+
+
         FirebaseDatabase.getInstance().getReference().child("visitor").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -56,15 +65,22 @@ public class admin extends AppCompatActivity {
                         String k =i.getVnumber() ;
                         String m =i.getAddress() ;
                         String p =i.getReason();
+                        String q=i.getDate();
+                        String w =i.getTime();
 
                         text1.setText(t);
                         text2.setText(k);
                         text3.setText(m);
                         text4.setText(p);
+                        text5.setText(q);
+                        text6.setText(w);
                         //   + "\n"+ i.getAddress()+ "\n"+ i.getVnumber()+ "\n"+ i.getReason()
-
+//                        ArrayList<String> a = new ArrayList<>();
+//                        ArrayAdapter adapter = new ArrayAdapter<String>(admin.this,R.layout.data);
+//                        list.setAdapter(adapter);
 //
                    }
+
 
 //                    adapter.notifyDataSetChanged();
                 }
@@ -76,6 +92,14 @@ public class admin extends AppCompatActivity {
             }
         });
 
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                startActivity(new Intent(admin.this, MainActivity.class));
+//                Toast.makeText(admin.this, "Logout Successfull", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
 
     }
