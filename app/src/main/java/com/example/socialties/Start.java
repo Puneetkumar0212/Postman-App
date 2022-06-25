@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.content.Intent;
@@ -16,8 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -34,6 +39,11 @@ public class Start extends AppCompatActivity {
     private TextView Reason;
     private TextView Datei;
     private TextView Time;
+
+    RecyclerView recyclerView ;
+    DatabaseReference database;
+    rvadapter rvadapter;
+    ArrayList<Visitor> list ;
 
     FirebaseDatabase rootnode;
     DatabaseReference reference;
@@ -120,6 +130,34 @@ public class Start extends AppCompatActivity {
 
 //        j =i ;
 //        i = j;
+
+        recyclerView =findViewById(R.id.rv2list);
+        database = FirebaseDatabase.getInstance().getReference("visitor");
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        list = new ArrayList<>();
+        rvadapter = new rvadapter(this,list);
+        recyclerView.setAdapter(rvadapter);
+
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+
+                    Visitor visitor = dataSnapshot.getValue(Visitor.class);
+                    list.add(visitor);
+
+                }
+
+                rvadapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
 

@@ -50,7 +50,6 @@ public class admin extends AppCompatActivity {
 
         recyclerView =findViewById(R.id.rvlist);
         database = FirebaseDatabase.getInstance().getReference("visitor");
- //       recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
