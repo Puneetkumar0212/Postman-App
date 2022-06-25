@@ -23,25 +23,26 @@ import java.util.ArrayList;
 
 public class Start extends AppCompatActivity {
 
+     private static  int j;
+  //  static int i;
     private Button logout;
     private Button adminpage;
     private TextView Name;
     private Button send;
-    private TextView VisitorNumber ;
-    private TextView Address ;
-    private TextView Reason ;
+    private TextView VisitorNumber;
+    private TextView Address;
+    private TextView Reason;
     private TextView Datei;
-    private  TextView Time;
+    private TextView Time;
 
     FirebaseDatabase rootnode;
-    DatabaseReference reference ;
-    public int j =0 ;
+    DatabaseReference reference;
+    //  static int j  ;
 //    ArrayList<String> datacol = new ArrayList<String>();
 //    String get_name = name.getText().toString();
 //    String get_phone = vnumber.getText().toString();
 //    String get_address = address.getText().toString();
 //    String get_reason = reason.getText().toString();
-
 
 
     @Override
@@ -50,14 +51,14 @@ public class Start extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
         logout = findViewById(R.id.button5);
- //       adminpage = findViewById(R.id.button7);
+        //       adminpage = findViewById(R.id.button7);
         Name = findViewById(R.id.editTextTextPersonName2);
         send = findViewById(R.id.button6);
-        VisitorNumber =findViewById(R.id.editTextTextPersonName3);
-        Address =findViewById(R.id.editTextTextPersonName4);
-        Reason=findViewById(R.id.editTextTextPersonName5);
-        Datei =findViewById(R.id.enterdate);
-        Time= findViewById(R.id.entertime);
+        VisitorNumber = findViewById(R.id.editTextTextPersonName3);
+        Address = findViewById(R.id.editTextTextPersonName4);
+        Reason = findViewById(R.id.editTextTextPersonName5);
+        Datei = findViewById(R.id.enterdate);
+        Time = findViewById(R.id.entertime);
 // we made a array list to store all the data like name, address, phone number and  reason and fin ally the arraylist is used.
 //        ArrayList<String> datacol = new ArrayList<String>();
 //        String get_name = name.getText().toString();
@@ -72,29 +73,31 @@ public class Start extends AppCompatActivity {
 //        datacol.add("  Visitor Name :"+get_name+"\n"+"Phone Number :"+get_phone+"\n"+"Address :"+get_address+"\n"+"Reason :"+ get_reason+"  ");
 
 
-     //   DAOVisitor daoVisitor = new DAOVisitor();
+        //   DAOVisitor daoVisitor = new DAOVisitor();
 
         send.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
-                j ++ ;
+                j++;
                 String get_name = Name.getText().toString();
                 String get_phone = VisitorNumber.getText().toString();
                 String get_address = Address.getText().toString();
                 String get_reason = Reason.getText().toString();
                 String get_datee = Datei.getText().toString();
-                String get_time =Time.getText().toString();
+                String get_time = Time.getText().toString();
 
                 rootnode = FirebaseDatabase.getInstance();
                 reference = rootnode.getReference().child("visitor");
 
-                Visitor visitor = new Visitor(get_name,get_phone, get_address, get_reason, get_datee,get_time);
-                reference.child("Visitor"+j).setValue(visitor);
+                Visitor visitor = new Visitor(get_name, get_phone, get_address, get_reason, get_datee, get_time);
+                reference.child("Visitor" + j).setValue(visitor);
 
                 Toast.makeText(Start.this, "Details Send Successfully", Toast.LENGTH_SHORT).show();
 
             }
-    //            Visitor visitor = new Visitor(get_name,get_address,get_phone,get_reason);
+            //            Visitor visitor = new Visitor(get_name,get_address,get_phone,get_reason);
 
 //                String sms_number = number.getText().toString().trim();
 //                String sms = datacol.toString().trim();
@@ -114,8 +117,11 @@ public class Start extends AppCompatActivity {
                 startActivity(new Intent(Start.this, MainActivity.class));
             }
         });
-    }
 
+//        j =i ;
+//        i = j;
+    }
+}
 
 //    private void sendsms() {
 //        ArrayList<String> datacol = new ArrayList<String>();
@@ -157,4 +163,4 @@ public class Start extends AppCompatActivity {
 //            }
 //        }
 //    }
-}
+

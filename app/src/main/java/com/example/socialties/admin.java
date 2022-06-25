@@ -2,6 +2,8 @@ package com.example.socialties;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,72 +28,102 @@ public class admin extends AppCompatActivity {
 //        private TextView vaddress;
 //        private TextView vphone;
 //        private TextView vreason;
-
-
-  //    private ListView list;
-      private TextView text1 ;
-      private TextView text2 ;
-      private TextView text3 ;
-    private TextView text4 ;
-    private TextView text5 ;
-    private TextView text6 ;
+//    private TextView text1 ;
+//      private TextView text2 ;
+//      private TextView text3 ;
+//    private TextView text4 ;
+//    private TextView text5 ;
+//    private TextView text6 ;
  //   private Button logout;
+
+    RecyclerView recyclerView ;
+    DatabaseReference database;
+    rvadapter rvadapter;
+    ArrayList<Visitor> list ;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
-   //     list = findViewById(R.id.list);
 
-     //   logout.findViewById(R.id.button7);
-        text1 = findViewById(R.id.vname);
-        text2 =findViewById(R.id.vphone);
-        text3 =findViewById(R.id.vaddress);
-        text4 =findViewById(R.id.vreason);
-        text5 =findViewById(R.id.vdate);
-        text6 =findViewById(R.id.vtime);
+        recyclerView =findViewById(R.id.rvlist);
+        database = FirebaseDatabase.getInstance().getReference("visitor");
+ //       recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        list = new ArrayList<>();
+        rvadapter = new rvadapter(this,list);
+        recyclerView.setAdapter(rvadapter);
 
-        FirebaseDatabase.getInstance().getReference().child("visitor").addValueEventListener(new ValueEventListener() {
+        database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists())
-                {
 
-                    for(DataSnapshot snapshot1:snapshot.getChildren())
-                    {
-                        Visitor i =snapshot1.getValue(Visitor.class);
-                        String t =i.getName() ;
-                        String k =i.getVnumber() ;
-                        String m =i.getAddress() ;
-                        String p =i.getReason();
-                        String q=i.getDate();
-                        String w =i.getTime();
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
 
-                        text1.setText(t);
-                        text2.setText(k);
-                        text3.setText(m);
-                        text4.setText(p);
-                        text5.setText(q);
-                        text6.setText(w);
-                        //   + "\n"+ i.getAddress()+ "\n"+ i.getVnumber()+ "\n"+ i.getReason()
-//                        ArrayList<String> a = new ArrayList<>();
-//                        ArrayAdapter adapter = new ArrayAdapter<String>(admin.this,R.layout.data);
-//                        list.setAdapter(adapter);
-//
-                   }
+                    Visitor visitor = dataSnapshot.getValue(Visitor.class);
+                    list.add(visitor);
 
-
-//                    adapter.notifyDataSetChanged();
                 }
+
+                rvadapter.notifyDataSetChanged();
             }
 
-           @Override
+            @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
 
+    }
+}
+//        list = findViewById(R.id.list);
+//        logout.findViewById(R.id.button7);
+//        text1 = findViewById(R.id.vname);
+//        text2 =findViewById(R.id.vphone);
+//        text3 =findViewById(R.id.vaddress);
+//        text4 =findViewById(R.id.vreason);
+//        text5 =findViewById(R.id.vdate);
+//        text6 =findViewById(R.id.vtime);
+//        FirebaseDatabase.getInstance().getReference().child("visitor").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if(snapshot.exists())
+//                {
+//
+//                    for(DataSnapshot snapshot1:snapshot.getChildren())
+//                    {
+//                        Visitor i =snapshot1.getValue(Visitor.class);
+//                        String t =i.getName() ;
+//                        String k =i.getVnumber() ;
+//                        String m =i.getAddress() ;
+//                        String p =i.getReason();
+//                        String q=i.getDate();
+//                        String w =i.getTime();
+//
+//                        text1.setText(t);
+//                        text2.setText(k);
+//                        text3.setText(m);
+//                        text4.setText(p);
+//                        text5.setText(q);
+//                        text6.setText(w);
+                        //   + "\n"+ i.getAddress()+ "\n"+ i.getVnumber()+ "\n"+ i.getReason()
+//                        ArrayList<String> a = new ArrayList<>();
+//                        ArrayAdapter adapter = new ArrayAdapter<String>(admin.this,R.layout.data);
+//                        list.setAdapter(adapter);
+//
+  //                 }
+//                    adapter.notifyDataSetChanged();
+  //              }
+//            }
+
+//           @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 //        logout.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -100,7 +132,5 @@ public class admin extends AppCompatActivity {
 //                Toast.makeText(admin.this, "Logout Successfull", Toast.LENGTH_SHORT).show();
 //            }
 //        });
-
-
-    }
-}
+  //  }
+//}
