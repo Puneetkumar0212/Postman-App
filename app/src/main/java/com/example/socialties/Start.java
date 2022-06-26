@@ -42,7 +42,7 @@ public class Start extends AppCompatActivity {
 
     RecyclerView recyclerView ;
     DatabaseReference database;
-    rvadapter rvadapter;
+    rvadapter2 rvadapter2;
     ArrayList<Visitor> list ;
 
     FirebaseDatabase rootnode;
@@ -102,7 +102,7 @@ public class Start extends AppCompatActivity {
                 reference = rootnode.getReference().child("visitor");
 
                 Visitor visitor = new Visitor(get_name, get_phone, get_address, get_reason, get_datee, get_time);
-                reference.child("Visitor" + j).setValue(visitor);
+                reference.child("Date: "+get_datee+" Time: "+get_time).setValue(visitor);
 
                 Toast.makeText(Start.this, "Details Send Successfully", Toast.LENGTH_SHORT).show();
 
@@ -136,8 +136,8 @@ public class Start extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
-        rvadapter = new rvadapter(this,list);
-        recyclerView.setAdapter(rvadapter);
+        rvadapter2 = new rvadapter2(this,list);
+        recyclerView.setAdapter(rvadapter2);
 
         database.addValueEventListener(new ValueEventListener() {
             @Override
@@ -150,7 +150,7 @@ public class Start extends AppCompatActivity {
 
                 }
 
-                rvadapter.notifyDataSetChanged();
+                rvadapter2.notifyDataSetChanged();
             }
 
             @Override

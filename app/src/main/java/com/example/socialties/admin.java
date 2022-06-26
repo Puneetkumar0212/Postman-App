@@ -34,7 +34,7 @@ public class admin extends AppCompatActivity {
 //    private TextView text4 ;
 //    private TextView text5 ;
 //    private TextView text6 ;
- //   private Button logout;
+  //  private Button logout;
 
     RecyclerView recyclerView ;
     DatabaseReference database;
@@ -48,6 +48,7 @@ public class admin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
+  //      logout =findViewById(R.id.button9);
         recyclerView =findViewById(R.id.rvlist);
         database = FirebaseDatabase.getInstance().getReference("visitor");
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -76,6 +77,14 @@ public class admin extends AppCompatActivity {
             }
         });
 
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                startActivity(new Intent(admin.this, MainActivity.class));
+//                Toast.makeText(admin.this, "Logout Successfull", Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 }
 //        list = findViewById(R.id.list);
@@ -123,13 +132,6 @@ public class admin extends AppCompatActivity {
 //
 //            }
 //        });
-//        logout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(admin.this, MainActivity.class));
-//                Toast.makeText(admin.this, "Logout Successfull", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+
   //  }
 //}

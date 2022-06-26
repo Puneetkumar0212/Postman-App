@@ -129,7 +129,7 @@
             android:background="#378C566D"
             android:ems="10"
             android:hint="Date"
-            android:inputType="date"
+            android:inputType="textPersonName"
             android:padding="5dp"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
