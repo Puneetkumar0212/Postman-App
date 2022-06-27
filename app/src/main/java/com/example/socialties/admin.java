@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +42,9 @@ public class admin extends AppCompatActivity {
     DatabaseReference database;
     rvadapter rvadapter;
     ArrayList<Visitor> list ;
-
+    RadioGroup radioGroup;
+    RadioButton accept;
+    RadioButton reject;
 
 
     @Override
@@ -52,11 +56,15 @@ public class admin extends AppCompatActivity {
         recyclerView =findViewById(R.id.rvlist);
         database = FirebaseDatabase.getInstance().getReference("visitor");
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        radioGroup= findViewById(R.id.radiogroup);
+        accept = findViewById(R.id.acceptbtn);
+        reject = findViewById(R.id.rejectbtn);
+
 
         list = new ArrayList<>();
         rvadapter = new rvadapter(this,list);
         recyclerView.setAdapter(rvadapter);
-
+            list.clear();
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -64,7 +72,9 @@ public class admin extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
 
                     Visitor visitor = dataSnapshot.getValue(Visitor.class);
+
                     list.add(visitor);
+
 
                 }
 
@@ -76,6 +86,8 @@ public class admin extends AppCompatActivity {
 
             }
         });
+
+
 
 //        logout.setOnClickListener(new View.OnClickListener() {
 //            @Override

@@ -39,6 +39,7 @@ public class Start extends AppCompatActivity {
     private TextView Reason;
     private TextView Datei;
     private TextView Time;
+    private TextView serialno;
 
     RecyclerView recyclerView ;
     DatabaseReference database;
@@ -69,6 +70,7 @@ public class Start extends AppCompatActivity {
         Reason = findViewById(R.id.editTextTextPersonName5);
         Datei = findViewById(R.id.enterdate);
         Time = findViewById(R.id.entertime);
+        serialno =findViewById(R.id.serialno);
 // we made a array list to store all the data like name, address, phone number and  reason and fin ally the arraylist is used.
 //        ArrayList<String> datacol = new ArrayList<String>();
 //        String get_name = name.getText().toString();
@@ -90,23 +92,29 @@ public class Start extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                j++;
+
+                list.clear();
+
                 String get_name = Name.getText().toString();
                 String get_phone = VisitorNumber.getText().toString();
                 String get_address = Address.getText().toString();
                 String get_reason = Reason.getText().toString();
                 String get_datee = Datei.getText().toString();
                 String get_time = Time.getText().toString();
+                String get_serialno = serialno.getText().toString();
 
                 rootnode = FirebaseDatabase.getInstance();
                 reference = rootnode.getReference().child("visitor");
 
-                Visitor visitor = new Visitor(get_name, get_phone, get_address, get_reason, get_datee, get_time);
-                reference.child("Date: "+get_datee+" Time: "+get_time).setValue(visitor);
 
-                Toast.makeText(Start.this, "Details Send Successfully", Toast.LENGTH_SHORT).show();
+                    Visitor visitor = new Visitor(get_name, get_phone, get_address, get_reason, get_datee, get_time,get_serialno);
+                    reference.child("Visitor No: "+get_serialno).setValue(visitor);
 
-            }
+
+                    Toast.makeText(Start.this, "Details Send Successfully", Toast.LENGTH_SHORT).show();
+
+                }
+
             //            Visitor visitor = new Visitor(get_name,get_address,get_phone,get_reason);
 
 //                String sms_number = number.getText().toString().trim();

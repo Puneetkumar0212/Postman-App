@@ -8,17 +8,21 @@ public class Visitor {
     private String reason;
     private String date;
     private String time;
+    private String serialno;
 
     public Visitor(){
 
     }
-    public Visitor(String name, String vnumber, String address, String reason, String date, String time) {
+
+
+    public Visitor(String name, String vnumber, String address, String reason, String date, String time, String serialno) {
         this.name = name;
         this.vnumber = vnumber;
         this.address = address;
         this.reason = reason;
         this.date = date;
         this.time= time ;
+        this.serialno = serialno;
 
     }
 
@@ -69,4 +73,13 @@ public class Visitor {
     public void setTime(String time) {
         this.time = time;
     }
+
+    public String getSerialno() {
+        return serialno;
+    }
+
+    public void setSerialno(String serialno) {
+        this.serialno = serialno;
+    }
+
 }

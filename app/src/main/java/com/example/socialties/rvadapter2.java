@@ -46,6 +46,7 @@ public class rvadapter2 extends RecyclerView.Adapter<rvadapter2.ViewHolder> {
         holder.vreason.setText(visitor.getVnumber());
         holder.vdate.setText(visitor.getDate());
         holder.vtime.setText(visitor.getTime());
+        holder.sno.setText(visitor.getSerialno());
     }
 
     @Override
@@ -62,6 +63,8 @@ public class rvadapter2 extends RecyclerView.Adapter<rvadapter2.ViewHolder> {
         public TextView vreason ;
         public TextView vdate;
         public TextView vtime;
+        public TextView sno;
+        public TextView response;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,6 +74,8 @@ public class rvadapter2 extends RecyclerView.Adapter<rvadapter2.ViewHolder> {
             vreason =(TextView) itemView.findViewById(R.id.vreason);
             vdate =(TextView) itemView.findViewById(R.id.vdate);
             vtime =(TextView) itemView.findViewById(R.id.vtime);
+            sno =(TextView) itemView.findViewById(R.id.textView8);
+            response =(TextView) itemView.findViewById(R.id.textView7);
 
 
         }
