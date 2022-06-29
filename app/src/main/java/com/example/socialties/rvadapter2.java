@@ -43,10 +43,11 @@ public class rvadapter2 extends RecyclerView.Adapter<rvadapter2.ViewHolder> {
         holder.vname.setText(visitor.getName());
         holder.vadd.setText(visitor.getAddress());
         holder.vphone.setText(visitor.getVnumber());
-        holder.vreason.setText(visitor.getVnumber());
+        holder.vreason.setText(visitor.getReason());
         holder.vdate.setText(visitor.getDate());
         holder.vtime.setText(visitor.getTime());
         holder.sno.setText(visitor.getSerialno());
+        holder.response.setText(visitor.getRemarks());
     }
 
     @Override
@@ -66,11 +67,12 @@ public class rvadapter2 extends RecyclerView.Adapter<rvadapter2.ViewHolder> {
         public TextView sno;
         public TextView response;
 
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             vname = (TextView) itemView.findViewById(R.id.vname);
-            vadd =(TextView) itemView.findViewById(R.id.vphone);
-            vphone =(TextView) itemView.findViewById(R.id.vaddress);
+            vadd =(TextView) itemView.findViewById(R.id.vaddress);
+            vphone =(TextView) itemView.findViewById(R.id.vphone);
             vreason =(TextView) itemView.findViewById(R.id.vreason);
             vdate =(TextView) itemView.findViewById(R.id.vdate);
             vtime =(TextView) itemView.findViewById(R.id.vtime);

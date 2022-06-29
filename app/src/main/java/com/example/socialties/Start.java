@@ -28,10 +28,10 @@ import java.util.ArrayList;
 
 public class Start extends AppCompatActivity {
 
-     private static  int j;
+
   //  static int i;
     private Button logout;
-    private Button adminpage;
+ //   private Button adminpage;
     private TextView Name;
     private Button send;
     private TextView VisitorNumber;
@@ -40,6 +40,7 @@ public class Start extends AppCompatActivity {
     private TextView Datei;
     private TextView Time;
     private TextView serialno;
+//    private TextView remarks;
 
     RecyclerView recyclerView ;
     DatabaseReference database;
@@ -71,6 +72,7 @@ public class Start extends AppCompatActivity {
         Datei = findViewById(R.id.enterdate);
         Time = findViewById(R.id.entertime);
         serialno =findViewById(R.id.serialno);
+  //      remarks = findViewById(R.id.remarks);
 // we made a array list to store all the data like name, address, phone number and  reason and fin ally the arraylist is used.
 //        ArrayList<String> datacol = new ArrayList<String>();
 //        String get_name = name.getText().toString();
@@ -102,13 +104,14 @@ public class Start extends AppCompatActivity {
                 String get_datee = Datei.getText().toString();
                 String get_time = Time.getText().toString();
                 String get_serialno = serialno.getText().toString();
+                String get_remarks ="";
 
                 rootnode = FirebaseDatabase.getInstance();
                 reference = rootnode.getReference().child("visitor");
 
 
-                    Visitor visitor = new Visitor(get_name, get_phone, get_address, get_reason, get_datee, get_time,get_serialno);
-                    reference.child("Visitor No: "+get_serialno).setValue(visitor);
+                    Visitor visitor = new Visitor(get_name, get_phone, get_address, get_reason, get_datee, get_time, get_serialno, get_remarks );
+                    reference.child(get_serialno).setValue(visitor);
 
 
                     Toast.makeText(Start.this, "Details Send Successfully", Toast.LENGTH_SHORT).show();

@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class admin extends AppCompatActivity {
 
@@ -42,9 +44,12 @@ public class admin extends AppCompatActivity {
     DatabaseReference database;
     rvadapter rvadapter;
     ArrayList<Visitor> list ;
-    RadioGroup radioGroup;
-    RadioButton accept;
-    RadioButton reject;
+
+//    public Button accbtn ;
+//    public TextView remarks ;
+//    public TextView sno ;
+
+
 
 
     @Override
@@ -56,15 +61,18 @@ public class admin extends AppCompatActivity {
         recyclerView =findViewById(R.id.rvlist);
         database = FirebaseDatabase.getInstance().getReference("visitor");
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        radioGroup= findViewById(R.id.radiogroup);
-        accept = findViewById(R.id.acceptbtn);
-        reject = findViewById(R.id.rejectbtn);
+//        remarks = findViewById(R.id.remarks);
+//       sno = findViewById(R.id.serialno);
 
+//        String get_remarks =remarks.getText().toString();
+//        String get_sno =sno.getText().toString();
 
         list = new ArrayList<>();
+
         rvadapter = new rvadapter(this,list);
         recyclerView.setAdapter(rvadapter);
             list.clear();
+
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -86,6 +94,21 @@ public class admin extends AppCompatActivity {
 
             }
         });
+
+//        FirebaseDatabase firebaseDatabase;
+//        DatabaseReference reference;
+//
+//        firebaseDatabase =FirebaseDatabase.getInstance();
+//        reference = firebaseDatabase.getReference().child("visitor");
+//
+//        accbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Visitor vis =new Visitor();
+//                reference.child(get_sno).setValue(vis);
+//            }
+//        });
+
 
 
 

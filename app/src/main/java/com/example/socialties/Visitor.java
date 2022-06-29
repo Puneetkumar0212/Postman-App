@@ -9,13 +9,13 @@ public class Visitor {
     private String date;
     private String time;
     private String serialno;
+    private String remarks ;
 
-    public Visitor(){
+  public Visitor()
+  {
 
-    }
-
-
-    public Visitor(String name, String vnumber, String address, String reason, String date, String time, String serialno) {
+  }
+   public Visitor(String name, String vnumber, String address, String reason, String date, String time, String serialno, String remarks) {
         this.name = name;
         this.vnumber = vnumber;
         this.address = address;
@@ -23,8 +23,11 @@ public class Visitor {
         this.date = date;
         this.time= time ;
         this.serialno = serialno;
+       this.remarks= remarks;
 
     }
+
+
 
     public String getName() {
         return name;
@@ -81,5 +84,14 @@ public class Visitor {
     public void setSerialno(String serialno) {
         this.serialno = serialno;
     }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
 
 }

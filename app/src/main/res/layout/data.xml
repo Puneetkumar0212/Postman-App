@@ -184,27 +184,7 @@
 <!--            android:layout_marginTop="90dp"-->
 <!--            android:text="Reject" />-->
 
-        <RadioGroup
-            android:id="@+id/radiogroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="300dp"
-            android:layout_marginTop="45dp">
 
-            <RadioButton
-                android:id="@+id/acceptbtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Accept"
-                android:textColor="@color/black" />
-
-            <RadioButton
-                android:id="@+id/rejectbtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Reject"
-                android:textColor="@color/black" />
-        </RadioGroup>
 
         <TextView
             android:id="@+id/textView9"
@@ -226,6 +206,46 @@
             android:textColor="#283593"
             android:layout_marginTop="22dp"
             android:text=" S.No" />
+
+        <TextView
+            android:id="@+id/reas"
+            android:layout_width="125dp"
+            android:layout_marginTop="65dp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="265dp"
+            android:layout_height="40dp"
+            android:textSize="15dp"
+            />
+
+        <EditText
+            android:id="@+id/remarks"
+            android:layout_width="125dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="265dp"
+            android:layout_marginTop="115dp"
+            android:ems="10"
+            android:textColorHint="#D6D1D1"
+            android:hint="Remarks"
+            android:inputType="textPersonName"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="50dp"
+            android:layout_marginLeft="260dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp"
+            android:text="Accept"
+            android:textSize="4dp"/>
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="55dp"
+            android:layout_marginLeft="318dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp"
+            android:text="Reject"
+            android:textSize="4dp"/>
+
 
 
     </androidx.cardview.widget.CardView>
