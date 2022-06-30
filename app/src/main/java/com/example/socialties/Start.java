@@ -149,13 +149,12 @@ public class Start extends AppCompatActivity {
         list = new ArrayList<>();
         rvadapter2 = new rvadapter2(this,list);
         recyclerView.setAdapter(rvadapter2);
-
+        list.clear();
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
+                    list.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-
                     Visitor visitor = dataSnapshot.getValue(Visitor.class);
                     list.add(visitor);
 
