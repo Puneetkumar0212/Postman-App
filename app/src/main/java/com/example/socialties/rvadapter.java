@@ -136,7 +136,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.ViewHolder>  {
             @Override
             public void onClick(View v) {
                     list.clear();
-                String get_remarks = "Rejected\n " + remarks.getText().toString();
+                String get_remarks = "Rejected\n" + remarks.getText().toString();
                 String get_serial =sno.getText().toString();
 
                 FirebaseDatabase firebaseDatabase;
@@ -146,7 +146,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.ViewHolder>  {
 //                    Visitor visitor = new Visitor();
 //                    visitor.setRemarks(get_remarks);
                 reference.child(get_serial).child("remarks").setValue(get_remarks);
-                Log.d("RV Adapter", "Setting Remarks Complete");
+//                Log.d("RV Adapter", "Setting Remarks Complete");
                 notifyDataSetChanged();
 
             }

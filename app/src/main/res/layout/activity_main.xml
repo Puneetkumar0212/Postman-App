@@ -40,7 +40,8 @@ android:background="@drawable/loginpage"    tools:context=".MainActivity">
             android:layout_marginRight="10dp"
             android:foregroundGravity="center"
             android:text="User"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            app:cornerRadius="50dp" />
 
         <Button
             android:id="@+id/button4"
@@ -51,7 +52,8 @@ android:background="@drawable/loginpage"    tools:context=".MainActivity">
             android:layout_marginRight="100dp"
             android:foregroundGravity="center"
             android:text="Admin Login"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            app:cornerRadius="50dp" />
     </androidx.cardview.widget.CardView>
 
     <TextView

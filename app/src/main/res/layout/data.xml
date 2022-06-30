@@ -210,19 +210,20 @@
         <TextView
             android:id="@+id/reas"
             android:layout_width="125dp"
-            android:layout_marginTop="65dp"
+            android:layout_marginTop="55dp"
             android:textColor="@color/black"
-            android:layout_marginLeft="265dp"
-            android:layout_height="40dp"
-            android:textSize="15dp"
+            android:layout_marginLeft="260dp"
+            android:layout_height="70dp"
+            android:textStyle="bold"
+            android:textSize="12dp"
             />
 
         <EditText
             android:id="@+id/remarks"
             android:layout_width="125dp"
             android:layout_height="55dp"
-            android:layout_marginLeft="265dp"
-            android:layout_marginTop="115dp"
+            android:layout_marginLeft="260dp"
+            android:layout_marginTop="125dp"
             android:ems="10"
             android:textColorHint="#D6D1D1"
             android:hint="Remarks"
@@ -231,20 +232,27 @@
 
         <Button
             android:id="@+id/button7"
-            android:layout_width="50dp"
-            android:layout_marginLeft="260dp"
+            android:layout_width="55dp"
             android:layout_height="35dp"
+            android:layout_marginLeft="260dp"
             android:layout_marginTop="15dp"
+            android:backgroundTint="#2E8532"
             android:text="Accept"
-            android:textSize="4dp"/>
+            android:textColor="@color/white"
+            android:textSize="5dp"
+            app:cornerRadius="15dp" />
+
         <Button
             android:id="@+id/button8"
             android:layout_width="55dp"
-            android:layout_marginLeft="318dp"
             android:layout_height="35dp"
+            android:layout_marginLeft="318dp"
             android:layout_marginTop="15dp"
+            android:backgroundTint="#AE2424"
             android:text="Reject"
-            android:textSize="4dp"/>
+            android:textColor="@color/white"
+            android:textSize="5dp"
+            app:cornerRadius="15dp" />
 
 
 
