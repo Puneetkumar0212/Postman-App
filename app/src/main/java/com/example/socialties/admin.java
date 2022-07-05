@@ -69,6 +69,7 @@ public class admin extends AppCompatActivity {
 
         list = new ArrayList<>();
 
+
         rvadapter = new rvadapter(this,list);
         recyclerView.setAdapter(rvadapter);
             list.clear();
@@ -78,11 +79,13 @@ public class admin extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
+ //               Collections.reverse(list);
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
 
                     Visitor visitor = dataSnapshot.getValue(Visitor.class);
 
                     list.add(visitor);
+                    Collections.reverse(list);
 
 
                 }
