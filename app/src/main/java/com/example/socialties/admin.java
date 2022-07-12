@@ -85,7 +85,7 @@ public class admin extends AppCompatActivity {
                     Visitor visitor = dataSnapshot.getValue(Visitor.class);
 
                     list.add(visitor);
-                    Collections.reverse(list);
+ //                   Collections.reverse(list);
 
 
                 }

@@ -42,7 +42,7 @@ public class loginpage extends AppCompatActivity {
 
                 editor.putBoolean("hasLoggedIn",true);
                 editor.commit();
-                startActivity(new Intent(loginpage.this,admin.class));
+  //              startActivity(new Intent(loginpage.this,admin.class));
 
                 String txt_email= email.getText().toString();
                 String txt_password=password.getText().toString();
