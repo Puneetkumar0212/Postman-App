@@ -66,8 +66,7 @@ android:background="@drawable/loginpage"    tools:context=".MainActivity">
         android:background="#C9F1DADA"
         android:backgroundTint="@color/white"
         android:padding="10dp"
-        android:text="Hey Guys! Welcome to my Social Ties Community. It is a platform where you can chill with your friends, families and your loved ones. It provides you the facility to send  text messeges
-and free calling feature.Thats all for now. Be Connected with us for more Updates and fun. "
+        android:text="Hey!!\nIf you are using this application as Admin just Login with your Credentials, Otherwise go for user and enter the required details and then wait for Admin's response. "
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"

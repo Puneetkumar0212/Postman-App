@@ -24,13 +24,23 @@
         android:layout_marginTop="5dp"
         android:padding="5dp"
         android:text="Visitor's details are shown below:"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="18dp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
       />
 
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textSize="8dp"
+        app:cornerRadius="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/rvlist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

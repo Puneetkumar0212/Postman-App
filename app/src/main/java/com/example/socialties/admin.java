@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -44,6 +45,7 @@ public class admin extends AppCompatActivity {
     DatabaseReference database;
     rvadapter rvadapter;
     ArrayList<Visitor> list ;
+  Button logout ;
 
 //    public Button accbtn ;
 //    public TextView remarks ;
@@ -66,13 +68,25 @@ public class admin extends AppCompatActivity {
 
 //        String get_remarks =remarks.getText().toString();
 //        String get_sno =sno.getText().toString();
-
+        logout = findViewById(R.id.button9);
         list = new ArrayList<>();
 
 
         rvadapter = new rvadapter(this,list);
         recyclerView.setAdapter(rvadapter);
             list.clear();
+
+            logout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SharedPreferences preferences =getSharedPreferences(loginpage.PREFS_NAME, 0);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.clear();
+                    editor.apply();
+                    finish();
+                    startActivity(new Intent(admin.this,MainActivity.class));
+                }
+            });
 
 
         database.addValueEventListener(new ValueEventListener() {
